@@ -2,23 +2,28 @@ package com.animeshjain.assignment152;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 
 public class MainActivity extends AppCompatActivity {
 
-    String[] versionName= {"alpha","beta","cupcake","donut","eclair","froyo","ginger bread","Honeycomb","IceCream Sandwich",
-    "JellyBean","Kitkat","LollyPop","Marshmallow","Nougat","Oreo"};
+
+    RecyclerView recyclerView;
+    RecyclerView.LayoutManager layoutManager;
+    RecyclerView.Adapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RecyclerView.ViewHolder recyclerView;
+        recyclerView= (RecyclerView)findViewById(R.id.recyclerView);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
 
-//        CustomAdapter customAdapter= new CustomAdapter();
-//        recyclerView.setAdapter(customAdapter);
+        adapter = new RecyclerAdapter();
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
