@@ -8,7 +8,7 @@ import android.view.Menu;
 
 public class MainActivity extends AppCompatActivity {
 
-
+// Declaring the Important Components for a Recycler View i.e LayoutManager, Adapter and the View itself
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
+//    Implementing/ Attaching Option Menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_items,menu );

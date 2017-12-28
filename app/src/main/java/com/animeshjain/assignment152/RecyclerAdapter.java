@@ -10,25 +10,28 @@ import android.widget.TextView;
  * Created by Jain on 28-12-2017.
  */
 
+//Class to Implement RecyclerView Adapter
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
 
+//    String Array containing the versions name
     private String[] versionName= {"alpha","beta","cupcake","donut","eclair","froyo","ginger bread","Honeycomb","IceCream Sandwich",
             "JellyBean","Kitkat","LollyPop","Marshmallow","Nougat","Oreo"};
 
     class ViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView title;
+        public TextView versionNameTxtView;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            title = (TextView)itemView.findViewById(R.id.versionTxtView);
+            versionNameTxtView = (TextView)itemView.findViewById(R.id.versionTxtView);
         }
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
+//        Inflating the CardView:: So that Items can be added in the Cards
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.card_view, parent, false);
         ViewHolder viewHolder = new ViewHolder(v);
@@ -36,9 +39,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         return viewHolder;
     }
 
+//    Bindind Card View With RecyclerView using Adapter
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        viewHolder.title.setText(versionName[i]);
+        viewHolder.versionNameTxtView.setText(versionName[i]);
 
     }
 
